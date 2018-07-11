@@ -4,6 +4,22 @@ function CoreUtils() {
         utils.reuseableFunction = (test) => {
             console.log(test);
         };
+        
+        utils.assertLogs = (logs) => {
+            logs.forEach((log) => {
+                // find the index of the item in the expectedLog array where the field, code and message match that of a log item.
+                const index = expectedLog.findIndex( (item) => {
+                    console.log('in function');
+                    return item.field === log.jsonKey && item.code === log.code && item.message === log.message;
+                });
+
+                console.log('index ' + index);
+                if (index !== -1){
+                    expectedLog.splice(index, 1);
+                }
+            });
+            return expectedLog.length;
+        };
 
         return utils;  
 };
