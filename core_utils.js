@@ -1,29 +1,17 @@
-if (typeof CoreUtils === "undefined") {
-    let globalEval = eval;
-
-    function CoreUtils() {
+function CoreUtils() {
         let utils = {};
 
         utils.reuseableFunction = (test) => {
             console.log(test);
         };
 
-        return utils;
+        return utils;  
+};
 
-    }
-
-
-    coreutils = new CoreUtils()
+CoreUtils();
 
    
-    if (typeof init === "function") {
-        console.log("Running the init function")
-        init();
-    }
-} else {
-    console.log("CoreUtils already loaded");
-
-}
+   
 
 /* loading script to be used at collection level
 if (typeof pmutil == "undefined") {
