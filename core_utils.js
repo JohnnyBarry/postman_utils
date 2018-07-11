@@ -1,8 +1,8 @@
 function CoreUtils() {
         let utils = {};
 
-        utils.reuseableFunction = (test) => {
-            console.log(test);
+        utils.log = (text) => {
+            console.log(text);
         };
         
         utils.assertLogs = (logs) => {
@@ -30,20 +30,20 @@ CoreUtils();
    
 
 /* loading script to be used at collection level
-if (typeof pmutil == "undefined") {
-    var url = "https://raw.githubusercontent.com/tarunlalwani/postman-utils/master/pmutils.js";
-    if (pm.globals.has("pmutiljs"))
-        eval(pm.globals.get("pmutiljs"))
-    else {
-        console.log("pmutil not found. loading from " + url);
-        pm.sendRequest(url, function (err, res) {
-            eval(res.text());
-            pm.globals.set('pmutiljs', res.text())
-        });
-    }
+var utils_url = "https://raw.githubusercontent.com/JohnnyBarry/postman_utils/master/core_utils.js";
+
+if (pm.globals.has("coreutils"))
+    eval(pm.globals.get("coreutils"))
+else {
+    console.log("coreutil not found. loading from " + utils_url);
+    pm.sendRequest(utils_url, function (err, res) {
+        eval(res.text());
+        pm.globals.set('coreutils', res.text());
+    });
 }
 */
 
 /* To use the functions wherever you need use below
-   eval(pm.globals.get("pmutiljs"))
+   let utils = eval(globals.coreutils);
+utils.reuseableFunction('Hi JB from coreUtils');
 */
